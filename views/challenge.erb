@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <!-- Challenge header -->
+      <h1><%= @challenge[:title] %></h1>
+      <span class="label label-primary"><%= @challenge[:type] %></span> <span class="label label-info"><%= @challenge[:points] %></span>
+      <hr>
+      <!-- Challenge text -->
+      <p><%= @challenge[:text] %></p>
+      <hr>
+      <% if @challenge[:download] %>
+      <!-- Download content -->
+      <a href="/challenges/<%= @challenge[:download] %>" class="btn btn-primary"><span class="glyphicon glyphicon-save"></span> Download</a>
+      <hr>
+      <% end %>
+      <!-- Submit challenge -->
+      <form data-toggle="validator" role="form" action='/challenge/<%= @challenge[:name] %>' method='POST' enctype="multipart/form-data">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon" id="flag"><span class="glyphicon glyphicon-flag"></span></span>
+          <input name="flag" type="text" class="form-control" placeholder="What do you think the flag is?" describedby="flag">
+          <span class="input-group-btn">
+            <% if @already_completed %>
+            <button class="btn btn-danger"> Completed </button>
+            <% else %>
+            <button class="btn btn-primary" type="button submit"> Submit! </button>
+            <% end %>
+          </span>
+        </div>
+      </form>
+      <!-- Failed response -->
+      <% if @failed %>
+      <hr>
+      <div class="alert alert-danger" role="alert">
+        <p><strong>Nope!</strong> Feel free to try again...</p>
+      </div>
+      <% end %>
+
+    </div>
+  </div>
+</div>

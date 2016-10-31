@@ -1,0 +1,32 @@
+<div class="container">
+  <h2 class="form-signin-heading">Login</h2>
+  <% if @failed %>
+  <h5><span class="label label-danger">Unable to login for some reason.</span></h5>
+  <hr>
+  <% end %>
+
+  <form data-toggle="validator" role="form" action='/login' method='POST' enctype="multipart/form-data">
+    <div class="form-group has-feedback">
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-user"></i>
+          </span>
+          <input class="form-control" placeholder="Username" name="username" type="text" autofocus required>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="input-group input-group-lg">
+          <span class="input-group-addon">
+            <i class="glyphicon glyphicon-lock"></i>
+          </span>
+          <input class="form-control" placeholder="Password" name="password" type="password" value="" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
+      </div>
+      <a href="/register"  class="btn btn-lg btn-primary btn-block" role="button">Register</a>
+    </form>
+  </div>
+</div>

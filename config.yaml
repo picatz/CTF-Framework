@@ -1,0 +1,59 @@
+---
+:copyright: false
+#:copyright: Copyright © Wiggle Wiggle Wiggle. Pretty much all rights reserved.
+:ctf_name: Picat's CTF
+:ctf_tagline: Capture the Flag Framework Demo
+:ip_address: 127.0.0.1
+:port: 80
+:logging: true
+:public_scoreboard: false
+#:public_scoreboard: true
+:ssl: false
+# if set to true, will need to have https:// in url
+#:ssl: true
+#:ssl_options:
+#  :cert_chain_file: ssl/legit.cert.pem
+#  :private_key_file: ssl/legit.key.pem
+#  :verify_peer: false
+#:teams: false
+:teams:
+  - red
+  - yellow
+  - blue
+# Regular expression restrictions for users
+:restrictions:
+  :email_regex_restriction: false
+#  :email_regex_restriction: !ruby/regexp /\w+\d?@emich.edu/
+  :password_count_restriction: false
+#  :password_count_restriction: 13
+:layout:
+  :author: Kent 'picat' Gruber
+  :easter_egg: Ruby is Awesome!
+:index:
+  :logo: /images/logo.png
+  :jumbotron_background: /images/background.png
+:challenges:
+- :name: hackthe
+  :title: "Hack the ...?"
+  :points: 100
+  :type: Trivia
+  :text: "With our powers combined, I can hack the what?"
+  :download: false
+  :flag: "Planet"
+  :strict: false
+- :name: betterthanpython
+  :title: What is better than Python?
+  :points: 100
+  :type: Trivia
+  :text: "It's Kent's favorite language!"
+  :download: false
+  :flag: "Ruby"
+  :strict: false
+- :name: howmany
+  :title: Can you even count?
+  :points: 100
+  :type: Trivia
+  :text: "How many lines exist in the file data.txt that is provided?"
+  :download: "data.txt"
+  :flag: "1"
+  :strict: false

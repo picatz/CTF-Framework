@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <!-- Top of the Scoreboard -->
+      <div class="row">
+        <div class="col-xs-2">
+          <h1>Scoreboard</h1>
+        </div>
+        <% if @config.teams %>
+        <div class="col-xs-10 text-right h1">
+          <div class="btn-group" role="group">
+            <a href="/scoreboard" role="button" class="btn btn-default">All</a>
+            <% @config.teams.each do |team| %>
+            <a href="/scoreboard/<%= team %>" role="button" class="btn btn-default"><%= team %></a>
+            <% end %>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+      <!-- Scoreboard Table -->
+      <% if @scores %>
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Real Name</th>
+            <th>Points</th>
+            <% if @config.teams %>
+            <th>Team</th>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% @scores.each do |score| %>
+          <tr>
+            <% if username %>
+            <td><a href="/profile/<%= score[:username] %>"><%= score[:username] %></a></td>
+            <% else %>
+            <td><%= score[:username] %></td>
+            <% end %>
+            <td><%= score[:real_name] %></td>
+            <td><%= score[:points] %></td>
+            <% if @config.teams %>
+            <td><%= score[:team] %></td>
+            <% end %>
+          </tr>
+          <% end %>
+        </tbody>
+      </table>
+      <% else %>
+      <p>No Scores Available...</p>
+      <% end %>
+    </div>
+  </div>
+</div>

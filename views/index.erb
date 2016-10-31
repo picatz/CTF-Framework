@@ -1,0 +1,35 @@
+<style type="text/css">
+  .jumbotron {
+    background: url('<%= @config.index[:jumbotron_background] %>') no-repeat center center;
+    background-size: cover;
+    padding: 150px;
+  }
+  .vertical-center {
+    height:100%;
+    width:100%;
+
+    text-align: center;  /* align the inline(-block) elements horizontally */
+  }
+
+  .vertical-center:before {    /* create a full-height inline block pseudo=element */
+    content: ' ';
+    display: inline-block;
+    vertical-align: middle;  /* vertical alignment of the inline element */
+    height: 100%;
+  }
+</style>
+
+<div>
+  <div class="jumbotron vertical-center">
+    <div class="over container body-content text-center">
+      <center>
+        <img class="img-responsive" height="236" alt="Responsive image" src="<%= @config.index[:logo] %>">
+        <font color = "ffffff">
+          <strong><h1><%= @config.ctf_name %></h1></strong>
+          <h3><%= @config.ctf_tagline %></h3>
+        </div>
+      </font>
+    </center>
+  </div>
+</div>
+</div>

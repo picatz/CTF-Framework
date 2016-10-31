@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-2">
+      <h1>Profile</h1>
+    </div>
+    <div class="col-xs-10 text-right h1">
+      <% if @data[:username] == username %>
+      <a class="btn btn-default" href="/edit-profile" role="button"><span class="glyphicon glyphicon-edit"></span> Edit</a>
+      <% end %>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-3">
+      <strong><h3><%= @data[:username] %></h3></strong>
+      <p><%= @data[:real_name] %></p>
+      &nbsp;
+      <% if @config.layout[:teams] %>
+      <strong><p>Team:</strong> <%= @data[:team] %></p>
+      <% end %>
+      <strong><p>Points:</strong> <%= @data[:points] %></p>
+    </div>
+    <div class="col-xs-9">
+      <h2>Completed Challenges</h2>
+      <% unless @data[:completed_challenges].empty? %>
+      <div class="list-group">
+        <% @data[:completed_challenges].each do |challenge| %>
+        <div class="list-group-item">
+          <% chall = nil %>
+          <% @config.challenges.each { |x| chall = x if x[:name] == challenge } %>
+          <h4><%= chall[:title] %></h4>
+        </div>
+        <% end %>
+      </div>
+      <% else %>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <p>No completed challenges... yet!</p>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+&nbsp;

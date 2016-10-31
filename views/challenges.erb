@@ -1,0 +1,46 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <!-- Top of the Scoreboard -->
+      <h1>Challenges</h1>
+      <!-- Failed response -->
+      <% if @completed %>
+      <hr>
+      <div class="alert alert-success" role="alert">
+        <p><strong>You got it!</strong> Try your skills at some other challenges!</p>
+      </div>
+      <% elsif @already_completed %>
+      <hr>
+      <div class="alert alert-danger" role="alert">
+        <p><strong>Whoa!</strong> Don't be greedy, you can only get the flag once.</p>
+      </div>
+      <% end %>
+      <!-- Scoreboard Table -->
+      <% if @config.challenges %>
+      <div class="list-group">
+        <% @config.challenges.each do |challenge| %>
+        <a href="/challenge/<%= challenge[:name] %>" role="button" class="list-group-item">
+          <div class="row">
+            &nbsp;
+            <div class="col-xs-10">
+              <h3><%= challenge[:title] %></h3>
+            </div>
+            <div class="col-xs-2 text-right">
+              &nbsp;
+              &nbsp;
+              <div>
+                <span class="label label-primary"><%= challenge[:type] %></span>
+                <span class="label label-info"><%= challenge[:points] %></span>
+              </div>
+            </div>
+          </div>
+        </a>
+        <% end %>
+      </div>
+      <% else %>
+      <p>No Challenges Available...</p>
+      <% end %>
+    </div>
+  </div>
+</div>
