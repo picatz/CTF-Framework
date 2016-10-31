@@ -45,8 +45,11 @@ To run this application, a command-line wrapper has been implemented.
 
 ### Start
 
-`ruby app.rb -r`
+Depending on your platform and the port you want to run your application on, you may have to use sudo.
 
+```
+$ (sudo) ruby app.rb -r
+```
 ### Other Options
 
 Running the application without any flags default to a help menu which helps details the other options available.
